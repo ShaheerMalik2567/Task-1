@@ -1,0 +1,66 @@
+
+
+let user = {
+    array: [7,3,4,8,2,94,45,3,4],
+    name: ['zebra', 'monkey','parrot','bear']
+
+};
+
+console.log("normal array :: "+ user.array);
+
+console.log("normal alphabetical array :: "+ user.name);
+
+/////////////////////////////////////////
+///<<<<<<<<<<SORTING>>>>>>>>/////////////
+console.log("Alphabetically Sorted array :: "+user.name.sort(function(a,b){
+    if(a>b)return 1;
+    if(a<b)return -1;
+    return 0;
+}));
+
+
+ console.log("Sorted array :: "+user.array.sort(function(a,b){
+    if(a>b)return 1;
+    if(a<b)return -1;
+    return 0;
+
+ }));
+
+let n = user.array.length;
+
+////////////////// second highest////////////////////// 
+let a,b , largest , second ;
+
+if(user.array[0] > user.array[1]){
+    largest  = user.array[0];
+    second = user.array[1];
+}else if (user.array[0] < user.array[1])
+{
+    largest = user.array[1];
+    second = user.array[0];
+}
+for(let i = 2 ; i <n;i++){
+    if(user.array[i]>largest){
+        second = largest;
+        largest = user.array[i];
+    }
+    else if(user.array[i]>second && user.array[i]!=largest){
+        second = user.array[i];
+    }
+}
+console.log('the second highest number is :: '+second);
+
+/////////////////////// duplicates////////////////////////////
+
+let temp=[10];
+let j = 0 ;
+for(let i = 0;i<n-1;i++){
+    if(user.array[i] != user.array[i+1]){
+        temp[j++]=user.array[i];
+    }    
+};
+temp[j++] = user.array[n-1];
+
+
+console.log("after removing duplicates :: "+temp);
+////////////////////////////////////////////////////////////////
